@@ -1,0 +1,21 @@
+url 
+	public --- no login required  
+	private -- after login 
+	
+	
+	
+	signup 
+	login 
+	forgetpassword
+	reset password 
+	 
+	
+	admin-dashboard 
+	user-dashboard
+	cart 
+	orders
+	payments
+	address 
+	
+	
+how we can identify ? 
