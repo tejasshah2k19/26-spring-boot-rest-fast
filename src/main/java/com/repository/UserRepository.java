@@ -9,4 +9,6 @@ import com.entity.UserEntity;
 
 public interface UserRepository extends JpaRepository<UserEntity, UUID>{
 	Optional<UserEntity> findByEmail(String email);
+	Optional<UserEntity> findByToken(String token);
+
 }	

@@ -1,5 +1,6 @@
 package com.controller;
 
+import java.util.HashMap;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class SessionController {
 	TokenService tokenService;
 	
 	@PostMapping("signup")
-	public ResponseEntity<UserEntity> signup(@RequestBody UserEntity user) {
+	public ResponseEntity<?> signup(@RequestBody UserEntity user) {
 
 		// validation
 		// 400
@@ -38,7 +39,10 @@ public class SessionController {
 			return ResponseEntity.status(HttpStatus.CONFLICT).body(user);
 		} else {
 			userRepository.save(user);
-			return ResponseEntity.status(HttpStatus.CREATED).body(user);
+			HashMap<String, Object> map = new HashMap<>();
+			map.put("user", user);
+			map.put("msg", "User Created");
+			return ResponseEntity.status(HttpStatus.CREATED).body(map);
 
 		}
 	}
